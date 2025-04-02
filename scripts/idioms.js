@@ -24,7 +24,7 @@ const questions = [
         ]
     },
     {
-        question: "A bug in the system describe:",
+        question: "A bug in the system refers to",
         answers: [
             { text: "An insect in the garden", correct: false },
             { text: "A medical virus", correct: false },
