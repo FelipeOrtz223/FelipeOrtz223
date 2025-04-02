@@ -1,0 +1,65 @@
+/* Estilos para la página de presentación */
+.presentation-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.presentation-header h1 {
+    color: #ff6b00;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.presentation-content {
+    margin: 30px 0;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.presentation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.presentation-footer {
+    margin-top: 40px;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+    .presentation-container {
+        padding: 25px;
+    }
+    
+    .presentation-header h1 {
+        font-size: 28px;
+    }
+    
+    .presentation-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .presentation-buttons .login-button {
+        width: 100%;
+    }
+}
