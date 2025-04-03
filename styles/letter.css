@@ -1,0 +1,170 @@
+/* 🎨 PALETA VERDE Y BLANCO */
+:root {
+    --green-main: #4CAF50;
+    --green-light: #E8F5E9;
+    --green-dark: #388E3C;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+  }
+  
+  /* 🖥️ ESTRUCTURA CENTRADA */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .main-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .game-container {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+  
+  /* 📦 CONTENEDOR DE LETRAS */
+  .letters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .letter-box {
+    background-color: var(--green-main);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .letter-box:hover {
+    transform: scale(1.1);
+    background-color: var(--green-dark);
+  }
+  
+  /* 💡 PISTA */
+  .hint-container {
+    background-color: var(--green-light);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+  }
+  
+  #hint-text {
+    color: var(--green-main);
+    font-style: italic;
+  }
+  
+  /* ✅❌ RESULTADO */
+  #result-message {
+    min-height: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .correct {
+    color: var(--green-main);
+  }
+  
+  .incorrect {
+    color: #f44336;
+  }
+  
+  /* 🕹️ BOTONES */
+  .green-btn {
+    background-color: var(--green-main);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+  }
+  
+  .green-btn:hover {
+    background-color: var(--green-dark);
+  }
+  
+  .green-btn:disabled {
+    background-color: #BDBDBD;
+    cursor: not-allowed;
+  }
+  
+  /* 📱 MOBILE RESPONSIVE */
+  @media (max-width: 600px) {
+    .letter-box {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .green-btn {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+  }
+  .results-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.score {
+    font-size: 24px;
+    color: #4CAF50;
+    margin: 20px 0;
+}
+
+.results-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    .results-buttons {
+        flex-direction: column;
+    }
+    
+    .green-btn {
+        width: 100%;
+    }
+}
