@@ -76,7 +76,7 @@ function showQuestion() {
     resetState();
     const currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
-    questionCounter.textContent = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+    questionCounter.textContent = `question ${currentQuestionIndex + 1} of ${questions.length}`;
     
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("div");
