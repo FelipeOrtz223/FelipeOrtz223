@@ -5,10 +5,10 @@
     --green-dark: #388E3C;
     --white: #FFFFFF;
     --text-dark: #333333;
-  }
-  
-  /* 🖥️ ESTRUCTURA CENTRADA */
-  body {
+}
+
+/* 🖥️ ESTRUCTURA CENTRADA */
+body {
     font-family: Arial, sans-serif;
     background-color: var(--white);
     display: flex;
@@ -16,155 +16,190 @@
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
-  }
-  
-  .main-container {
+    padding: 15px;
+    touch-action: manipulation; /* Mejorar respuesta táctil */
+}
+
+.main-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
-  }
-  
-  .game-container {
+}
+
+.game-container {
     background-color: var(--white);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: var(--text-dark);
-    margin-bottom: 20px;
-  }
-  
-  /* 📦 CONTENEDOR DE LETRAS */
-  .letters-container {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* 📦 CONTENEDOR DE LETRAS */
+.letters-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin: 30px 0;
-  }
-  
-  .letter-box {
+    margin: 35px 0;
+}
+
+.letter-box {
     background-color: var(--green-main);
     color: var(--white);
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: grab;
     user-select: none;
     transition: transform 0.2s, background-color 0.2s;
-  }
-  
-  .letter-box:hover {
+}
+
+.letter-box:hover {
     transform: scale(1.1);
     background-color: var(--green-dark);
-  }
-  
-  /* 💡 PISTA */
-  .hint-container {
+}
+
+/* 💡 PISTA */
+.hint-container {
     background-color: var(--green-light);
-    padding: 12px;
-    border-radius: 8px;
-    margin: 15px 0;
-  }
-  
-  #hint-text {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#hint-text {
     color: var(--green-main);
     font-style: italic;
-  }
-  
-  /* ✅❌ RESULTADO */
-  #result-message {
-    min-height: 24px;
+}
+
+/* ✅❌ RESULTADO */
+#result-message {
+    min-height: 28px;
     font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  .correct {
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+.correct {
     color: var(--green-main);
-  }
-  
-  .incorrect {
+}
+
+.incorrect {
     color: #f44336;
-  }
-  
-  /* 🕹️ BOTONES */
-  .green-btn {
+}
+
+/* 🕹️ BOTONES */
+.green-btn {
     background-color: var(--green-main);
     color: var(--white);
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 0 10px;
-  }
-  
-  .green-btn:hover {
+    margin: 0 12px;
+    min-width: 140px;
+}
+
+.green-btn:hover {
     background-color: var(--green-dark);
-  }
-  
-  .green-btn:disabled {
+}
+
+.green-btn:disabled {
     background-color: #BDBDBD;
     cursor: not-allowed;
-  }
-  
-  /* 📱 MOBILE RESPONSIVE */
-  @media (max-width: 600px) {
-    .letter-box {
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        min-height: 90vh;
     }
     
-    .controls {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
+    .game-container {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .letter-box {
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
     }
     
     .green-btn {
-      padding: 10px 20px;
-      font-size: 15px;
+        padding: 14px 25px;
+        font-size: 17px;
+        min-width: 120px;
     }
-  }
-  .results-container {
+    
+    .hint-container {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+/* 🏆 RESULTADOS */
+.results-container {
     text-align: center;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     margin-top: 20px;
 }
 
 .score {
-    font-size: 24px;
-    color: #4CAF50;
-    margin: 20px 0;
+    font-size: 28px;
+    color: var(--green-main);
+    margin: 25px 0;
+    font-weight: bold;
 }
 
 .results-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 20px;
+    margin-top: 35px;
 }
 
 @media (max-width: 600px) {
-    .results-buttons {
-        flex-direction: column;
+    .results-container {
+        padding: 25px 20px;
     }
     
-    .green-btn {
+    .score {
+        font-size: 24px;
+    }
+    
+    .results-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .results-buttons .green-btn {
         width: 100%;
+        margin: 0;
     }
 }
