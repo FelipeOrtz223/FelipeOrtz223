@@ -203,3 +203,38 @@ h2 {
         margin: 0;
     }
 }
+/* ANIMACIONES */
+@keyframes pick-up {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.1) rotate(2deg); }
+}
+
+@keyframes drop {
+    0% { transform: translateY(-10px); opacity: 0.5; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 1. Transición base (si no la tienes) */
+.letter-box {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 2. Efecto de arrastre (NUEVA REGLA) */
+.letter-box.dragging {
+    transform: scale(1.8) !important;
+    z-index: 1000;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    cursor: grabbing;
+}
+
+/* 3. Anular hover durante arrastre */
+.letter-box.dragging:hover {
+    transform: scale(1.8) !important;
+}
+
+/* 4. Ajuste para móviles (en tu media query) */
+@media (max-width: 600px) {
+    .letter-box.dragging {
+        transform: scale(1.5) !important; /* Escala menor en móviles */
+    }
+}
