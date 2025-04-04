@@ -20,7 +20,7 @@ const nextBtn = document.getElementById('next-btn');
 const resultMessage = document.getElementById('result-message');
 const gameContainer = document.getElementById('game-container');
 
-// Función para mezclar letras (VERSIÓN MEJORADA)
+// Función para mezclar letras 
 function shuffleArray(array) {
     const newArray = [...array];
     let shuffled = false;
@@ -37,23 +37,13 @@ function shuffleArray(array) {
     return newArray;
 }
 
-// Iniciar juego (VERSIÓN CORREGIDA)
+// Iniciar juego 
 function initGame() {
     const currentWord = technologyWords[currentWordIndex];
     hintText.textContent = currentWord.hint;
     
     // Mezclar letras (asegurando que siempre queden desordenadas)
     letters = shuffleArray(currentWord.word.split(''));
-    
-    // Verificar si por casualidad quedó ordenado (muy improbable)
-    if (letters.join('') === currentWord.word) {
-        // Intercambiar dos letras aleatorias para desordenar
-        const i = Math.floor(Math.random() * letters.length);
-        let j = Math.floor(Math.random() * letters.length);
-        while (j === i) j = Math.floor(Math.random() * letters.length);
-        [letters[i], letters[j]] = [letters[j], letters[i]];
-    }
-    
     renderLetters();
     resultMessage.textContent = '';
     nextBtn.disabled = true;
@@ -145,3 +135,56 @@ function goToNextActivity() {
 
 // Iniciar el juego al cargar
 window.addEventListener('DOMContentLoaded', initGame);
+// Modificar función dragStart
+function dragStart(e) {
+    e.target.classList.add('dragging');
+    e.dataTransfer.setData('text/plain', e.target.dataset.index);
+}
+
+// Modificar función drop
+function drop(e) {
+    e.preventDefault();
+    const fromIndex = e.dataTransfer.getData('text/plain');
+    const toElement = e.target.closest('.letter-box');
+    
+    if (toElement) {
+        // Animación de destino
+        toElement.classList.add('drop-target');
+        setTimeout(() => toElement.classList.remove('drop-target'), 200);
+        
+        const toIndex = toElement.dataset.index;
+        swapLetters(fromIndex, toIndex);
+        
+        // Animación de caída
+        document.querySelectorAll('.letter-box').forEach(box => {
+            box.classList.add('dropping');
+            setTimeout(() => box.classList.remove('dropping'), 200);
+        });
+    }
+    
+    document.querySelectorAll('.letter-box').forEach(box => {
+        box.classList.remove('dragging');
+    });
+    
+}
+
+// JavaScript Ajustado
+function dragStart(e) {
+    e.target.classList.add('dragging');
+    e.dataTransfer.setData('text/plain', e.target.dataset.index);
+    
+    // Forzar redibujado para suavizar animación
+    void e.target.offsetWidth;
+}
+
+function dragEnd(e) {
+    document.querySelectorAll('.letter-box').forEach(box => {
+        box.classList.remove('dragging');
+    });
+}
+
+// Añadir event listeners
+document.querySelectorAll('.letter-box').forEach(box => {
+    box.addEventListener('dragstart', dragStart);
+    box.addEventListener('dragend', dragEnd);
+});
