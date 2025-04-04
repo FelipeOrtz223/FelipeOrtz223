@@ -116,7 +116,7 @@ function showResult() {
     questionContainer.style.display = "none";
     nextButton.style.display = "none";
     resultContainer.style.display = "block";
-    scoreMessage.textContent = `Sacaste ${score}/${questions.length} puntos`;
+    scoreMessage.textContent = `you have  ${score}/${questions.length} points`;
 }
 
 // Siguiente pregunta o mostrar resultados
