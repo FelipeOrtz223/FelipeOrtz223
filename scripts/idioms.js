@@ -146,7 +146,6 @@ nextButton.addEventListener("click", nextQuestion);
 startQuiz();
 
 // Función para cerrar sesión y redirigir al login
-function logout() {
-    // Aquí puedes agregar lógica adicional de limpieza si es necesario
-    window.location.href = "index.html"; // Cambia esto por la ruta de tu página de login
+function exit() {
+    window.location.href = "index.html";
 }
